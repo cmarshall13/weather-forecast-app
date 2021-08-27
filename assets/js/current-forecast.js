@@ -1,5 +1,5 @@
 //create function for current weather
-function fetchCurrentForecast(lat,lon,city) {
+function fetchCurrentForecast(lat, lon, city) {
     const current_api_url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial&exclude=hourly,minutely&appid=' + api_key;
     fetch(current_api_url)
     .then(
@@ -11,8 +11,6 @@ function fetchCurrentForecast(lat,lon,city) {
                     cityHumidity = data.current.humidity;
                     cityWind = data.current.wind_speed;
                     cityIcon = data.current.weather[0].icon;
-                    cityDescription = (data.current.weather[0].description).toUpperCase();
-
                     //create icon image
                     let iconImage = document.createElement('img');
                     iconImage.className = "current-icon";
@@ -31,7 +29,7 @@ function fetchCurrentForecast(lat,lon,city) {
 
                     //display data on page
                     cityInfo.textContent = `${city} (${currentDate})`;
-                    temp.textContent = `Temp: ${cityTemp}\u00BF`;
+                    temp.textContent = `Temp: ${cityTemp}\u00B0`;
                     wind.textContent = `Wind: ${cityWind} MPH`;
                     humidity.textContent = `Humidity: ${cityHumidity}%`;
 
@@ -47,7 +45,7 @@ function fetchCurrentForecast(lat,lon,city) {
                     cityInfo.append(iconImage);
                     uvi.append(uviSpan);
 
-                    fetchCurrentForecast.append(temp,wind,humidity,uvi);
+                    currentWeather.append(temp,wind,humidity,uvi);
 
                     getFiveDayForecast(data);
                 });

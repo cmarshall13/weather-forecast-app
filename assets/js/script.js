@@ -4,15 +4,14 @@ const searchButton = document.querySelector('.search-btn');
 const currentWeather = document.querySelector('.current-forecast-container');
 const cityInfo = document.querySelector('.city-name-date');
 const newButtons = document.querySelector('.new-buttons');
-const forecastContainer = document.querySelector('five-forecast-container');
-const weatherCardsContainer = document.queryContainer('.forecast-container');
+const forecastContainerEl = document.querySelector('five-forecast-container');
+const weatherCardsContainer = document.querySelector('.forecast-container');
 
 //add weather info with p elements
 let temp = document.createElement('p');
 let humidity = document.createElement('p');
 let uvi = document.createElement('p');
 let wind = document.createElement('p');
-let description = document.createElement('p');
 
 //set current date format
 let currentDate = moment().format('M/DD/YYYY');
@@ -53,10 +52,10 @@ function getCityInfo(event) {
 
     //clear current city info
     cityInfo.textContent = '';
-    forecastContainer.innerText = '';
+    //forecastContainerEl.innerText = '';
     weatherCardsContainer.innerText = '';
 
-    var city = citySearchInut.value.trim();
+    var city = citySearchInput.value.trim();
     if(!city) {
         alert('Not a valid city, please try again!');
         return;
@@ -65,7 +64,7 @@ function getCityInfo(event) {
     storedCities = JSON.parse(localStorage.getItem('storedCities')) || [];
     //save new city to localStorage
     storedCities.push(city);
-    storedCities = localStorage.setItem('storeCities', JSON.stringify(storedCities));
+    storedCities = localStorage.setItem('storedCities', JSON.stringify(storedCities));
 
     createButton(city);
 };
@@ -80,7 +79,7 @@ searchButton.addEventListener('click', getCityInfo);
 $(document).on('click', '.city-btn', function(event) {
     //clear current city from search
     cityInfo.textContent = '';
-    forecastContainer.innerText = '';
+    //forecastContainerEl.innerText = '';
     weatherCardsContainer.innerText = '';
     //display searched city's date and coordinates
     var existingCity = event.target.textcontent;

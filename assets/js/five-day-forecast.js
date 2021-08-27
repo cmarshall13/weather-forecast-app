@@ -2,7 +2,7 @@
 function getFiveDayForecast(data) {
     let forecastTitle = document.createElement('h2');
     forecastTitle.textContent = 'Five-Day Forecast:';
-    forecastContainer.append(forecastTitle);
+    forecastContainerEl.append(forecastTitle);
 
     for(i=0; i < 5; i++) {
         let dayCard = document.createElement('div');
@@ -28,7 +28,7 @@ function getFiveDayForecast(data) {
         let windDay = document.createElement('p');
         let humidityDay = document.createElement('p');
 
-        tempDay.textContent = `Temp: ${data.daily[i].temp.day}\u00BF`;
+        tempDay.textContent = `Temp: ${data.daily[i].temp.day}\u00B0`;
         windDay.textContent = `Wind: ${data.daily[i].wind_speed} MPH`;
         humidityDay.textContent = `Humidity: ${data.daily[i].humidity}%`;
 
@@ -37,7 +37,7 @@ function getFiveDayForecast(data) {
         //append the card to the parent
         weatherCardsContainer.append(dayCard);
         //append the foreast to the parent
-        forecastContainer.append(weatherCardsContainer);
+        forecastContainerEl.append(weatherCardsContainer);
 
     };
 };
