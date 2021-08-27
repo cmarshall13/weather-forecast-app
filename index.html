@@ -12,7 +12,39 @@
         <h1>Weather Dashboard</h1>
     </header>
 <main>
+    <div class="row">
 
+        <div class="first-col">
+            <form id="user-form" class="search-form">
+                <label for="city-search" class="form-label">
+                    Search for a City:
+                </label>
+                <input 
+                type="text" 
+                id="city-search" 
+                class="form-input" 
+                name="city-search" 
+                aria-label="Search for a City" 
+                autofocus="true"/>
+                <button type="submit" class="btn search-btn">Search</button>
+            </form>
+            <hr/>
+
+            <div class="new-buttons"></div>
+        </div>
+
+        <div class="second-col">
+            <section class="current-forecast-container">
+                <h2 class="city-name-date"></h2>
+            </section>
+
+            <div class="five-forecast-container">
+                <section class="forecast-container">
+                    
+                </section>
+            </div>
+        </div>
+    </div>
 </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
