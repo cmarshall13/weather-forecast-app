@@ -61,3 +61,24 @@ function fetchCurrentForecast(lat,lon,city) {
         })
     
 }
+
+//create fetch for coordinates
+function fetchCoordinates(city) {
+    const coord_api_url = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=5&appid=' + api_key;
+
+    fetch(coord_api_url)
+    .then(
+        function(response) {
+            response.json().then(function(data) {
+                var lat = data[0].lat;
+                var lon = data[0].lon;
+
+                fetchCurrentForecast(lat, lon, city);
+            });
+        }
+    )
+    .catch(function (err) {
+        alert('Not able to find city!');
+        return;
+    })
+};
