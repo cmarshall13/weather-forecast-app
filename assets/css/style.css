@@ -1,0 +1,11 @@
+/* color variables*/
+:root {
+    --primary-color: #e4d1d1;
+    --secondary-color: #b9b0b0;
+    --tertiary-color: #d9ecd0;
+    --background-color: #77a8a8;
+    --favorable: hsl(98, 100%, 27%);
+    --moderate: rgb(247, 205, 38);
+    --severe: hsl(6, 64%, 35%);
+}
+
