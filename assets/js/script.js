@@ -4,7 +4,7 @@ const searchButton = document.querySelector('.search-btn');
 const currentWeather = document.querySelector('.current-forecast-container');
 const cityInfo = document.querySelector('.city-name-date');
 const newButtons = document.querySelector('.new-buttons');
-const forecastContainerEl = document.querySelector('five-forecast-container');
+const forecastContainerEl = document.querySelector('.five-day-container');
 const weatherCardsContainer = document.querySelector('.forecast-container');
 
 //add weather info with p elements
@@ -20,7 +20,7 @@ let currentDate = moment().format('M/DD/YYYY');
 let storedCities = JSON.parse(localStorage.getItem('storedCities')) ||[];
 
 //API key for OpenWeather
-const api_key = '1fd353df9a65fba742aece36f28e320a';
+const api_key = '8d602153b9884fa53ef1de084dfbf11d';
 
 
 //display previously searched cities
@@ -52,7 +52,7 @@ function getCityInfo(event) {
 
     //clear current city info
     cityInfo.textContent = '';
-    //forecastContainerEl.innerText = '';
+    forecastContainerEl.innertext = '';
     weatherCardsContainer.innerText = '';
 
     var city = citySearchInput.value.trim();
@@ -79,10 +79,10 @@ searchButton.addEventListener('click', getCityInfo);
 $(document).on('click', '.city-btn', function(event) {
     //clear current city from search
     cityInfo.textContent = '';
-    //forecastContainerEl.innerText = '';
+    forecastContainerEl.innerText = '';
     weatherCardsContainer.innerText = '';
     //display searched city's date and coordinates
-    var existingCity = event.target.textcontent;
+    var existingCity = event.target.textContent;
     cityInfo.textContent = `${existingCity} (${currentDate})`;
     fetchCoordinates(existingCity);
 });

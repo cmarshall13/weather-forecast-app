@@ -11,7 +11,7 @@ function getFiveDayForecast(data) {
 
         //create info for each day in forecast
         let forecastDate = document.createElement('h3');
-        forecastDate.className = 'days';
+        forecastDate.className = 'forecast-date';
         forecastDate.textContent = moment().add((i + 1), 'days').format('M/DD/YYYY');
 
         //create icon images

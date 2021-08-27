@@ -1,7 +1,7 @@
 //create function for current weather
 function fetchCurrentForecast(lat, lon, city) {
-    const current_api_url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial&exclude=hourly,minutely&appid=' + api_key;
-    fetch(current_api_url)
+    const CURRENT_API_URL = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&units=imperial&exclude=hourly,minutely&appid=' + api_key;
+    fetch(CURRENT_API_URL)
     .then(
         function (response) {
             if (response.ok) {
@@ -12,9 +12,9 @@ function fetchCurrentForecast(lat, lon, city) {
                     cityWind = data.current.wind_speed;
                     cityIcon = data.current.weather[0].icon;
                     //create icon image
-                    let iconImage = document.createElement('img');
-                    iconImage.className = "current-icon";
-                    iconImage.src = 'https://openweathermap.org/img/wn/' + cityIcon + '.png';
+                    let iconImageEl = document.createElement('img');
+                    iconImageEl.className = "current-icon";
+                    iconImageEl.src = 'https://openweathermap.org/img/wn/' + cityIcon + '.png';
 
                     //add styling
                     temp.className = 'current-info';
@@ -42,7 +42,7 @@ function fetchCurrentForecast(lat, lon, city) {
                     }
                     uvi.textContent = `UV Index: `;
 
-                    cityInfo.append(iconImage);
+                    cityInfo.append(iconImageEl);
                     uvi.append(uviSpan);
 
                     currentWeather.append(temp,wind,humidity,uvi);
@@ -62,9 +62,9 @@ function fetchCurrentForecast(lat, lon, city) {
 
 //create fetch for coordinates
 function fetchCoordinates(city) {
-    const coord_api_url = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=5&appid=' + api_key;
+    const COORD_API_URL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=5&appid=' + api_key;
 
-    fetch(coord_api_url)
+    fetch(COORD_API_URL)
     .then(
         function(response) {
             response.json().then(function(data) {
