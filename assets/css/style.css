@@ -9,3 +9,33 @@
     --severe: hsl(6, 64%, 35%);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Times New Roman', Times, serif;
+    background: var(--background-color);
+}
+
+header {
+    background-image: linear-gradient(to right,hsl(221, 90%, 24%),var(--background-color));
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    padding: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.first-col {
+    flex: 25%;
+}
